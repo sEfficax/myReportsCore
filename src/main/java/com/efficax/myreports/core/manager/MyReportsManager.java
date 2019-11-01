@@ -6,13 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-@Component
-public class MyReportsManager {
-    @Autowired
+ 
+@Component   
+public class MyReportsManager {      
+    @Autowired   
     OrganizationRepository organizationRepository;
-    Logger logger = LoggerFactory.getLogger(MyReportsManager.class);
-    public Organization getDetailsById(String num) {
+    Logger logger = LoggerFactory.getLogger(MyReportsManager.class); 
+    public Organization getDetailsById(String num) {  
         logger.debug("Started : getDetailsById :" + num);
         Iterable<Organization> datas = organizationRepository.findByNpi(num);
         Organization dto=null;
@@ -20,8 +20,9 @@ public class MyReportsManager {
             logger.debug("data listed : getDetailsById :" + data.getOrgname());
             System.out.println(data.getOrgname());
             dto=data;
-        }
+        } 
         logger.debug("ended : getDetailsById :" +dto);
         return dto;
     }
 }
+ 
