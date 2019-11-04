@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
  
 @Component   
-public class MyReportsManager {      
+public class MyReportsManager {       
     @Autowired   
     OrganizationRepository organizationRepository;
     Logger logger = LoggerFactory.getLogger(MyReportsManager.class); 
@@ -18,9 +18,10 @@ public class MyReportsManager {
         Organization dto=null;
         for (Organization data : datas) {
             logger.debug("data listed : getDetailsById :" + data.getOrgname());
-            System.out.println(data.getOrgname());
+            System.out.println(data.getOrgname()); 
             dto=data;
         } 
+        
         logger.debug("ended : getDetailsById :" +dto);
         return dto;
     }

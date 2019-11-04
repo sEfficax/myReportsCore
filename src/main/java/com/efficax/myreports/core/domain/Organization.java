@@ -9,7 +9,7 @@ import lombok.Getter;
 @Entity(name = "organization")
 public class Organization {
 
-    @Id 
+    @Id  
     private Long objectid;
     private String type;
     private String orgname;
