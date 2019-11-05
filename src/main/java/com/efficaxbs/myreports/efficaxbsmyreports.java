@@ -1,13 +1,13 @@
-package com.FirstTask.First.task;
+package com.efficaxbs.myreports;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FirstTaskApplication {
+public class efficaxbsmyreports {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstTaskApplication.class, args);
+		SpringApplication.run(efficaxbsmyreports.class, args);
 	}
- 
+  
 }

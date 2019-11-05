@@ -1,7 +1,10 @@
- package com.efficax.myreports.core.manager;
- 
+package com.efficax.myreports.core.controller;
+
+import java.util.List;
 import java.util.Optional;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,35 +16,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.efficax.myreports.core.domain.Person;
 import com.efficax.myreports.core.repository.PersonRepository;
-
+import com.efficax.myreports.core.service.PersonService;
+ 
 @RestController
 public class PersonController {  
 	
 	@Autowired 
-	PersonRepository personRepository;
-	
-	@GetMapping("/users")
-	public Iterable<Person> findAllUsers() {
-		return  personRepository.findAll(); 
-	}
- 
-	@GetMapping 
-	public Optional<Person> findById(@PathVariable(value = "objectid") Long objectId) {
-		return personRepository.findById(objectId);
+   PersonService personService;
+	  
+	@GetMapping("/persons")
+	public List<Person> findAll() {
+		return  personService.findAll(); 
+	} 
+  
+	@GetMapping ("/person/{id}")
+	public Optional<Person> findById(@PathVariable(value = "/id") Long id) {
+		return personService.findById(id);
 		
 	}
 	
-	@PostMapping ("/users")
+	@PostMapping ("/person")
 	public Person createPerson(@Valid @RequestBody Person person) {
-		return personRepository.save(person);
+		return personService.save(person);
 	}
 	
-	@DeleteMapping ("users/{id}")
-	public ResponseEntity<Person> deletePerson(@PathVariable(value = "objectid") Long objectId){	
-		Optional<Person> person = personRepository.findById(objectId);
-		personRepository.deleteById(objectId);
+	@DeleteMapping ("person/{id}")
+	public ResponseEntity<Person> deletePerson(@PathVariable(value = "/id") Long id){	
+		Optional<Person> person = personService.findById(id);
+		personService.deleteById(id);
 		return ResponseEntity.ok().build();
 	} 
-
 }
-
