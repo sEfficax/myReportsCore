@@ -4,15 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.efficax.myreports.core.domain.Person;
 import com.efficax.myreports.core.repository.PersonRepository;
 
-@Service 
+@Component 
 public class PersonService {
 	
-	@Autowired
+	@Autowired(required=false)
 	PersonRepository personRepository;
 	 
 	

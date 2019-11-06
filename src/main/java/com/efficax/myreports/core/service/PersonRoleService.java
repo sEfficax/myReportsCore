@@ -4,16 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.efficax.myreports.core.domain.PersonRole;
 import com.efficax.myreports.core.repository.PersonRoleRepository;
 
-@Service
+@Component
 public class PersonRoleService {
 	
 	
-	@Autowired
+	@Autowired(required = false)
 	PersonRoleRepository pr;
 	
 	public List<PersonRole> findAll(){

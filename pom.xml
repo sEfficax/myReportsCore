@@ -8,11 +8,11 @@
 		<version>2.2.0.RC1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.FirstTask</groupId>
-	<artifactId>First-task</artifactId>
+	<groupId>com.efficaxbs.myreports</groupId>
+	<artifactId>MyReports</artifactId>
 	<version>0.0.1-SNAPSHOT</version> 
-	<name>First-task</name> 
-	<description>Demo project for Spring Boot</description>
+	<name>MyReportsCore</name> 
+	<description>My Reports API</description>
 
 	<properties> 
 		<java.version>1.8</java.version>
