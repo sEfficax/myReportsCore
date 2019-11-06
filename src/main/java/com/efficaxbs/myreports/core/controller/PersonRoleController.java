@@ -1,4 +1,4 @@
-package com.efficax.myreports.core.controller;
+package com.efficaxbs.myreports.core.controller;
 
 
 import java.util.List;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.efficax.myreports.core.domain.Person;
-import com.efficax.myreports.core.domain.PersonRole;
-import com.efficax.myreports.core.service.PersonRoleService;
+import com.efficaxbs.myreports.core.domain.Person;
+import com.efficaxbs.myreports.core.domain.PersonRole;
+import com.efficaxbs.myreports.core.service.PersonRoleService;
 
 @RestController
 @RequestMapping("/MyReports1")

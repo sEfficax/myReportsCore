@@ -1,4 +1,4 @@
-package com.efficax.myreports.core.domain;
+package com.efficaxbs.myreports.core.domain;
 
 import java.util.Date;
 import javax.persistence.Entity;

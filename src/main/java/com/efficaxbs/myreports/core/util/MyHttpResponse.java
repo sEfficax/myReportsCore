@@ -1,4 +1,4 @@
-package com.efficax.myreports.core.util;
+package com.efficaxbs.myreports.core.util;
 
 public class MyHttpResponse {
     private String status;

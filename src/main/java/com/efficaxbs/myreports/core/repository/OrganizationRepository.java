@@ -1,13 +1,14 @@
-package com.efficax.myreports.core.repository;
+package com.efficaxbs.myreports.core.repository;
   
-import com.efficax.myreports.core.domain.Organization;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
+import com.efficaxbs.myreports.core.domain.Organization;
  
 public interface OrganizationRepository extends CrudRepository<Organization, Long>, JpaSpecificationExecutor<Organization> {
-    @Query("from Organization a where a.objectid=:objectid")
+    @Query("from organization a where a.objectid=:objectid")
     public Iterable<Organization> findByNpi(@Param(value = "objectid") String objectid); 
 }   
            

@@ -1,4 +1,4 @@
-package com.efficax.myreports.core.domain;
+package com.efficaxbs.myreports.core.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

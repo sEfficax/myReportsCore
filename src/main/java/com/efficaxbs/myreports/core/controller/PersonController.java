@@ -1,4 +1,4 @@
-package com.efficax.myreports.core.controller;
+package com.efficaxbs.myreports.core.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,10 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.efficax.myreports.core.domain.Person;
-import com.efficax.myreports.core.repository.PersonRepository;
-import com.efficax.myreports.core.service.PersonService;
-import com.efficax.myreports.core.util.MyHttpResponse;
+import com.efficaxbs.myreports.core.domain.Person;
+import com.efficaxbs.myreports.core.service.PersonService;
+import com.efficaxbs.myreports.core.util.MyHttpResponse;
  
 
 @RequestMapping("/MyReports")
@@ -62,7 +61,7 @@ public class PersonController {
 
 	
 	@Autowired 
-   PersonService personService;
+   private PersonService personService;
 	  
 	@GetMapping("/persons")
 	public List<Person> findAll() {
@@ -70,7 +69,7 @@ public class PersonController {
 	} 
   
 	@GetMapping ("/person/{id}")
-	public Optional<Person> findById(@PathVariable(value = "/id") Long id) {
+	public Optional<Person> findById(@PathVariable(value = "id") Long id) {
 		return personService.findById(id);
 		
 	}
