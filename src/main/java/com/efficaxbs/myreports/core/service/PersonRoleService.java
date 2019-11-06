@@ -11,27 +11,14 @@ import com.efficaxbs.myreports.core.domain.PersonRole;
 import com.efficaxbs.myreports.core.repository.PersonRoleRepository;
 
 @Component
-public class PersonRoleService {
-	
-	
-	@Autowired(required = false)
-	PersonRoleRepository pr;
-	
-	public List<PersonRole> findAll(){
-		return (List<PersonRole>) pr.findAll();
-	}
-	
-	public Optional<PersonRole> findById(Long id) {
-		return pr.findById(id);
-	}
-	
-  public PersonRole save(PersonRole personrole) {
-	  return pr.save(personrole);
-  }
-	public PersonRole deleteById(Long id) {
-		 pr.deleteById(id);
-		return null;
-	} 
-	
+public interface PersonRoleService {
+
+	public List<PersonRole> findAll();
+
+	public Optional<PersonRole> findById(Long id);
+
+	public PersonRole save(PersonRole personrole);
+
+	public PersonRole deleteById(Long id);
 
 }

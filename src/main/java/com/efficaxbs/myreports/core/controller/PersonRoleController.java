@@ -24,29 +24,29 @@ import com.efficaxbs.myreports.core.service.PersonRoleService;
 @RequestMapping("/MyReports1")
 public class PersonRoleController {
 	@Autowired
-	PersonRoleService  prService; 
+	PersonRoleService  personRoleService; 
 	
 	
 	@GetMapping("/persons")
 	public List<PersonRole> findAll() {
-		return  prService.findAll(); 
+		return  personRoleService.findAll(); 
 	}
   
 	@GetMapping ("/person/{id}")
 	public Optional<PersonRole> findById(@PathVariable(value = "/id") Long id) {
-		return prService.findById(id);
+		return personRoleService.findById(id);
 		
 	}
 	
 	@PostMapping ("/person")
 	public PersonRole createPerson(@Valid @RequestBody PersonRole personrole) {
-		return prService.save(personrole);
+		return personRoleService.save(personrole);
 	}
 	
 	@DeleteMapping ("person/{id}")
 	public ResponseEntity<Person> deletePerson(@PathVariable(value = "/id") Long id){	
-		Optional<PersonRole> person = prService.findById(id);
-		prService.deleteById(id);
+		Optional<PersonRole> person = personRoleService.findById(id);
+		personRoleService.deleteById(id);
 		return ResponseEntity.ok().build();
 	}  
 
