@@ -22,8 +22,8 @@ import com.efficaxbs.myreports.core.service.PersonRoleService;
 
 @RestController
 @RequestMapping("/MyReports1")
-public class PersonRoleController {
-	@Autowired
+public class PersonRoleController { 
+	@Autowired(required = false)
 	PersonRoleService  personRoleService; 
 	
 	
