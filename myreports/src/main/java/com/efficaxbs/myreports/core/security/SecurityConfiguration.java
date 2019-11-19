@@ -20,10 +20,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable();
 			http.authorizeRequests()
-			.antMatchers(HttpMethod.GET, "/MyReports/**").hasRole("USER")
-			.antMatchers(HttpMethod.POST, "/MyReports").hasRole("ADMIN")
-            .antMatchers(HttpMethod.PUT, "/MyReports/**").hasRole("ADMIN")   
-            .antMatchers(HttpMethod.DELETE, "/MyReports/**").hasRole("ADMIN") 	
+			.antMatchers(HttpMethod.GET, "/MyReports/*").hasAnyRole("USER","ADMIN")
+			.antMatchers(HttpMethod.POST, "/MyReports/*").hasRole("ADMIN")
+            .antMatchers(HttpMethod.PUT, "/MyReports/*").hasRole("ADMIN")
+            .antMatchers(HttpMethod.DELETE, "/MyReports/*").hasRole("ADMIN")
 			.anyRequest().fullyAuthenticated().and()
 			.httpBasic();
 		}  
