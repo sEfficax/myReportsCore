@@ -18,7 +18,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired(required = false)
-	UserRepository userRepository;
+    UserRepository userRepository;
 
     public User getDetailsById(Long id) {
         Iterable<User> datas = userRepository.findByUserId(id);
@@ -31,20 +31,23 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-	@Override
-	public List<User> findAllUsers() {
-		return null;
-	}
+    @Override
+    public List<User> findAllUsers() {
+        return null;
+    }
 
-	@Override
-	public Person updateUser(Long id, User user) {
-		return null;
-	}
+    @Override
+    public Person updateUser(Long id, User user) {
+        return null;
+    }
 
-	public boolean addUser(User user) {
+    public boolean addUser(User user) {
         user.setCreateddate(new Date());
         user.setUpdateddate(new Date());
-        userRepository.save(user);
+        User u1 = userRepository.save(user);
+        if (u1 == null) {
+            return false;
+        }
         return true;
 
     }
