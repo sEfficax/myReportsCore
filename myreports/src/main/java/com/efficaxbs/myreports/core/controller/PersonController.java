@@ -25,7 +25,7 @@ import com.efficaxbs.myreports.core.service.PersonService;
 import com.efficaxbs.myreports.core.util.MyHttpResponse;
 
 
-@RequestMapping("/MyReports") 
+@RequestMapping("/MyReportsPerson")
 @RestController  
 public class PersonController {
    
