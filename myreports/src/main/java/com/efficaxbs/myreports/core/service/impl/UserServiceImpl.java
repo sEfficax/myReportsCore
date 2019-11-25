@@ -1,5 +1,6 @@
 package com.efficaxbs.myreports.core.service.impl;
 
+import com.efficaxbs.myreports.core.domain.Password;
 import com.efficaxbs.myreports.core.domain.Person;
 import com.efficaxbs.myreports.core.domain.User;
 import com.efficaxbs.myreports.core.repository.PersonRepository;
@@ -44,7 +45,8 @@ public class UserServiceImpl implements UserService {
     public boolean addUser(User user) {
         user.setCreateddate(new Date());
         user.setUpdateddate(new Date());
-        User u1 = userRepository.save(user);
+
+        User u1 = userRepository.save(new User("Test", new Password("Test")));
         if (u1 == null) {
             return false;
         }
