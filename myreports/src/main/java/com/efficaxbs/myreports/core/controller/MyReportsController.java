@@ -149,6 +149,45 @@ public class MyReportsController {
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/api/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getUsers(HttpServletRequest request, HttpSession session) {
+
+        MyHttpResponse response = new MyHttpResponse();
+
+        try {
+            List<User> userList = userService.findAllUsers();
+
+            response.setStatus("success");
+            response.setData(userList);
+            //response.setMessage("successfully saved");
+
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/user/{idNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getUserById(@PathVariable Long idNumber, HttpServletRequest request, HttpSession session) {
+
+        MyHttpResponse response = new MyHttpResponse();
+
+        try {
+            User userList = userService.getDetailsById(idNumber);
+
+            response.setStatus("success");
+            response.setData(userList);
+            response.setMessage("User details with id :" + idNumber);
+
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }
 
 	  

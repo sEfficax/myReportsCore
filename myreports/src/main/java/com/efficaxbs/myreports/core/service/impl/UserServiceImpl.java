@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     public User getDetailsById(Long id) {
-        Iterable<User> datas = userRepository.findByUserId(id);
+        Iterable<User> datas = userRepository.findDistinctByUserId(id);
         Person dto = null;
         return datas.iterator().next();
     }
@@ -34,7 +34,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAllUsers() {
-        return null;
+        Iterable<User> datas = userRepository.findAll();
+        List<User> actualList = new ArrayList<User>();
+        datas.forEach(actualList::add);
+        return actualList;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class UserServiceImpl implements UserService {
         user.setCreateddate(new Date());
         user.setModifieddate(new Date());
 
-        User u1 = userRepository.save(new User("Test", new Password("Test")));
+        User u1 = userRepository.save(user);
         if (u1 == null) {
             return false;
         }

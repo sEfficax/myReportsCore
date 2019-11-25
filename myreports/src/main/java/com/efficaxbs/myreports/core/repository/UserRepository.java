@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserRepository extends CrudRepository<User, Long>, JpaSpecificationExecutor<User> {
  
 	 @Query("from User a where a.userid=:id")
-	 public Iterable<User> findByUserId(@PathVariable(value = "id") Long id);
+	 public Iterable<User> findDistinctByUserId(@PathVariable(value = "id") Long id);
     
 }    
  

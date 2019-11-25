@@ -2,9 +2,9 @@ package com.efficaxbs.myreports.core.domain;
 
 import lombok.Data;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "User")
 @Data
@@ -27,7 +27,7 @@ public class User {
     private String email;
     //private String username;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "PasswordID", referencedColumnName = "PasswordID")
     private Password password;
 
@@ -37,12 +37,19 @@ public class User {
     private String createdbyuserid;
     private String modifiedbyuserid;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Address> addresses;
+
     public User(String name, Password password) {
         this.accountname = name;
         this.password = password;
         this.password.setUser(this);
-        this.createddate=new Date();
-        this.modifieddate=new Date();
+        this.createddate = new Date();
+        this.modifieddate = new Date();
+    }
+
+    public User() {
+        super();
     }
 } 
 

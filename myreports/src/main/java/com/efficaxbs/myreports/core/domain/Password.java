@@ -1,5 +1,6 @@
 package com.efficaxbs.myreports.core.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,19 +14,25 @@ public class Password {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long passwordid;
 
-    @OneToOne(mappedBy = "password")
+    @JsonIgnore
+    @OneToOne(mappedBy = "password", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User user;
 
     private String password;
     private String passwordquestion;
     private String passwordanswer;
-    private char active;
+    private boolean active;
     private String createdbyuserid;
     private Date createddate;
 
     public Password(String password) {
         this.password = password;
-        this.createddate= new Date();
+        this.createddate = new Date();
+    }
+
+    public Password() {
+        super();
+        this.createddate = new Date();
     }
 } 
 
