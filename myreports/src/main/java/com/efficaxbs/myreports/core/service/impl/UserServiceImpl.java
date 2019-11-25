@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 
     public boolean addUser(User user) {
         user.setCreateddate(new Date());
-        user.setUpdateddate(new Date());
+        user.setModifieddate(new Date());
 
         User u1 = userRepository.save(new User("Test", new Password("Test")));
         if (u1 == null) {

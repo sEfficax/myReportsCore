@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "password")
+@Entity(name = "Password")
 @Data
 public class Password {
 
@@ -25,6 +25,7 @@ public class Password {
 
     public Password(String password) {
         this.password = password;
+        this.createddate= new Date();
     }
 } 
 

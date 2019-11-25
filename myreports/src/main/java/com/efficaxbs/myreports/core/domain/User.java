@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "user")
+@Entity(name = "User")
 @Data
 public class User {
 
@@ -23,16 +23,16 @@ public class User {
     private String fullname;
     private String familyname; //lastname
     private String middlename;
-    private String phonenumber;
+
     private String email;
-    private String username;
+    //private String username;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PasswordID", referencedColumnName = "PasswordID")
     private Password password;
 
     private Date createddate;
-    private Date updateddate;
+    private Date modifieddate;
     private char active;
     private String createdbyuserid;
     private String modifiedbyuserid;
@@ -41,6 +41,8 @@ public class User {
         this.accountname = name;
         this.password = password;
         this.password.setUser(this);
+        this.createddate=new Date();
+        this.modifieddate=new Date();
     }
 } 
 
