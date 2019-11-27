@@ -8,6 +8,7 @@ import com.efficaxbs.myreports.core.util.MyHttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,8 @@ public class MyReportsController {
     private UserService userService;
 
     Logger logger = LoggerFactory.getLogger(MyReportsController.class);
-
+    @Autowired
+    private Environment env;
 
     @RequestMapping(value = "/api/id/{idNumber}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> validateById(@PathVariable Long idNumber, HttpServletRequest request,

@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\" align=\"center\">\n  <mat-toolbar-row>\n    <table width=\"100%\">\n      <tr>\n        <td width=\"5%\">\n          <img src=\"assets/images/logo.png\" alt=\"logo\" width=\"30%\">\n        </td>\n        <td width=\"40%\">\n          <mat-form-field>\n            <input matInput   ><mat-icon >search</mat-icon>\n\n          </mat-form-field>\n        </td>\n        <td width=\"30%\">\n          <span style=\"alignment: center\">My Reports Demo</span>\n        </td>\n        <td width=\"25%\">\n          <span style=\"alignment: center;cursor: pointer\" (click)=\"login()\" >\n            Login\n          </span>\n        </td>\n      </tr>\n    </table>\n  </mat-toolbar-row>\n\n</mat-toolbar>\n<!-- Add Content Here -->\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\" align=\"center\">\n  <mat-toolbar-row>\n    <table width=\"100%\">\n      <tr>\n        <td width=\"5%\">\n          <img src=\"../assets/images/logo.png\" alt=\"logo\" width=\"30%\">\n        </td>\n        <td width=\"40%\">\n          <mat-form-field>\n            <input matInput   ><mat-icon >search</mat-icon>\n\n          </mat-form-field>\n        </td>\n        <td width=\"30%\">\n          <span style=\"alignment: center\">My Reports Demo</span>\n        </td>\n        <td width=\"25%\">\n          <span style=\"alignment: center;cursor: pointer\" (click)=\"login()\" >\n            Login\n          </span>\n        </td>\n      </tr>\n    </table>\n  </mat-toolbar-row>\n\n</mat-toolbar>\n<!-- Add Content Here -->\n\n");
 
 /***/ }),
 
@@ -584,15 +584,7 @@ let CreateUserComponent = class CreateUserComponent {
         this.API_KEY = 'c2Fpa2lyYW46cGFzc3dvcmQ=';
     }
     onSubmit() {
-        var body = {
-            'firstname': this.firstName,
-            'lastname': this.lastName,
-            'middlename': this.middleName,
-            'phonenumber': this.phonenumber,
-            'email': this.email,
-            'username': this.username,
-            'password': this.password
-        };
+        var body = { "givenname": "Ravinder ", "familyname": "Rangamgari", "middlename": "", "phonenumber": "3022206686", "email": "ravinder.rangamgari@gmail.com", "accountname": "ravi", "password": { "password": "Test123", "passwordquestion": "My Question", "passwordanswer": "My Answer", "active": true }, "usergenderid": "1" };
         //this.httpClient.post(`http://localhost:8080/MyReports/api/user?apiKey=${this.API_KEY}`, body);
         //alert('Thanks!');
         const httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]();
@@ -602,7 +594,7 @@ let CreateUserComponent = class CreateUserComponent {
         const httpOptions = {
             headers: httpHeaders
         };
-        this.httpClient.get("https://myreports-env.mws77xncpx.us-east-1.elasticbeanstalk.com/MyReports/api/id/1", httpOptions).subscribe(data => {
+        this.httpClient.get("/MyReports/api/id/1", httpOptions).subscribe(data => {
             console.log(data);
         });
         this.httpClient.post("/MyReports/api/user", body, httpOptions)

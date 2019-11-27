@@ -96,7 +96,7 @@ var __extends = (this && this.__extends) || (function () {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\" align=\"center\">\n  <mat-toolbar-row>\n    <table width=\"100%\">\n      <tr>\n        <td width=\"5%\">\n          <img src=\"assets/images/logo.png\" alt=\"logo\" width=\"30%\">\n        </td>\n        <td width=\"40%\">\n          <mat-form-field>\n            <input matInput   ><mat-icon >search</mat-icon>\n\n          </mat-form-field>\n        </td>\n        <td width=\"30%\">\n          <span style=\"alignment: center\">My Reports Demo</span>\n        </td>\n        <td width=\"25%\">\n          <span style=\"alignment: center;cursor: pointer\" (click)=\"login()\" >\n            Login\n          </span>\n        </td>\n      </tr>\n    </table>\n  </mat-toolbar-row>\n\n</mat-toolbar>\n<!-- Add Content Here -->\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\" align=\"center\">\n  <mat-toolbar-row>\n    <table width=\"100%\">\n      <tr>\n        <td width=\"5%\">\n          <img src=\"../assets/images/logo.png\" alt=\"logo\" width=\"30%\">\n        </td>\n        <td width=\"40%\">\n          <mat-form-field>\n            <input matInput   ><mat-icon >search</mat-icon>\n\n          </mat-form-field>\n        </td>\n        <td width=\"30%\">\n          <span style=\"alignment: center\">My Reports Demo</span>\n        </td>\n        <td width=\"25%\">\n          <span style=\"alignment: center;cursor: pointer\" (click)=\"login()\" >\n            Login\n          </span>\n        </td>\n      </tr>\n    </table>\n  </mat-toolbar-row>\n\n</mat-toolbar>\n<!-- Add Content Here -->\n\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/table/table.component.html": 
@@ -611,15 +611,7 @@ var __extends = (this && this.__extends) || (function () {
                 }
                 CreateUserComponent.prototype.onSubmit = function () {
                     var _this = this;
-                    var body = {
-                        'firstname': this.firstName,
-                        'lastname': this.lastName,
-                        'middlename': this.middleName,
-                        'phonenumber': this.phonenumber,
-                        'email': this.email,
-                        'username': this.username,
-                        'password': this.password
-                    };
+                    var body = { "givenname": "Ravinder ", "familyname": "Rangamgari", "middlename": "", "phonenumber": "3022206686", "email": "ravinder.rangamgari@gmail.com", "accountname": "ravi", "password": { "password": "Test123", "passwordquestion": "My Question", "passwordanswer": "My Answer", "active": true }, "usergenderid": "1" };
                     //this.httpClient.post(`http://localhost:8080/MyReports/api/user?apiKey=${this.API_KEY}`, body);
                     //alert('Thanks!');
                     var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]();
@@ -629,7 +621,7 @@ var __extends = (this && this.__extends) || (function () {
                     var httpOptions = {
                         headers: httpHeaders
                     };
-                    this.httpClient.get("https://myreports-env.mws77xncpx.us-east-1.elasticbeanstalk.com/MyReports/api/id/1", httpOptions).subscribe(function (data) {
+                    this.httpClient.get("/MyReports/api/id/1", httpOptions).subscribe(function (data) {
                         console.log(data);
                     });
                     this.httpClient.post("/MyReports/api/user", body, httpOptions)
